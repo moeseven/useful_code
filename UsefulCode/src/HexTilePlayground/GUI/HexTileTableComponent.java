@@ -51,20 +51,14 @@ public class HexTileTableComponent extends JComponent{
 			HexTile f=table.getTiles().get(i);
 			g.drawImage(StaticImageLoader.getScaledImage(sprite_path,f.getImageNumber(), table.getHex_size()),f.getPolygon().xpoints[0]-(int)(0.5*hex_pixel_size),f.getPolygon().ypoints[0],null);
 			//show possible destinations for movement
-//			if(player.getSelectedUnit().reachableTile(f)){
-//				g.setColor(Color.GREEN);
-//			}else{
-//				g.setColor(Color.black);
-//			}
-			if(player.getSelectedUnit().getHexTile().getAdjacentTiles().contains(f)){
-				g.setColor(Color.GREEN);
-			}else{
-				g.setColor(Color.black);
-			}
 			if(f.getUnit()!=null) {
 				if(f.getUnit().getPlayer()!=player) {
 					g.setColor(Color.red);
+				}else {
+					g.setColor(Color.green);
 				}
+			}else {
+				g.setColor(Color.BLACK);
 			}
 			
 			g.drawPolygon(f.getPolygon());
